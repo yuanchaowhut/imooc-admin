@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# 这个命令会对整个项目进行检查，如果有不符合规范的代码则控制台会输出错误提示
+# npx eslint --ext .js,.vue src
+
+# 这个命令只对当前提交的文件进行代码检查，遇到不符合的代码会先自动修复，然后再提交，
+# 如果自动修复不了的，则控制台输出错误提示。注意，lint-staged 需要配合
+# package.json 中的 gitHooks 以及 lint-staged 配置!
+npx lint-staged
