@@ -29,5 +29,22 @@ module.exports = {
                 symbolId: 'icon-[name]'
             })
             .end()
+    },
+    // webpack-dev-server 相关配置 https://webpack.js.org/configuration/dev-server/
+    devServer: {
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        },
+        port: 8700,
+        hot: true,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8600',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': '/smart'
+                }
+            }
+        }
     }
 }
