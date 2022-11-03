@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { ElMessage } from 'element-plus'
 
 const service = axios.create({
     baseURL: process.env.VUE_APP_BASE_API,
@@ -24,11 +25,26 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
+    // 网络请求成功
     (response) => {
-        return response
+        let res = response
+        while (res.data && res.success === undefined) {
+            res = res.data
+        }
+        if (res.success) {
+            // 业务成功
+            return res.data
+        } else {
+            // 业务失败
+            ElMessage.error(res.message)
+            // reject一个error出去，以便外部Promise可以catch得到
+            return Promise.reject(new Error(res.message))
+        }
     },
+    // 网络请求失败
     (error) => {
-        return Promise.reject(error?.response)
+        ElMessage.error(error.message)
+        return Promise.reject(error)
     }
 )
 

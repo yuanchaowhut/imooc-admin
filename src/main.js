@@ -7,6 +7,8 @@ import installElementPlus from './plugins/element'
 // 导入 svgIcon
 import installIcons from '@/assets/icons'
 import './styles/index.scss'
+// 导入路由鉴权文件
+import './permission'
 
 const app = createApp(App)
 installElementPlus(app) // 全局注册Element UI组件
