@@ -1,4 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 const path = require('path')
 
 function resolve(dir) {
@@ -11,6 +12,7 @@ const _defineConfig = defineConfig({
 
 // https://cli.vuejs.org/zh/guide/webpack.html#简单的配置方式
 module.exports = {
+    // publicPath: './', // 若想本地能访问静态资源则，则这里需要配置为相对路径
     ..._defineConfig,
     chainWebpack(config) {
         // 设置 svg-sprite-loader
@@ -30,6 +32,11 @@ module.exports = {
             })
             .end()
     },
+    // 解决报错：webpack ＜ 5 used to include polyfills for node.js core modules by default
+    configureWebpack: {
+        plugins: [new NodePolyfillPlugin()]
+    },
+
     // webpack-dev-server 相关配置 https://webpack.js.org/configuration/dev-server/
     devServer: {
         headers: {
