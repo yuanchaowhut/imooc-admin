@@ -4,10 +4,10 @@
       <el-breadcrumb-item v-for="(item,index) in breadCrumbData" :key="item.path">
         <!-- 可点击项 -->
         <a v-if="index < breadCrumbData.length-1" class="redirect" @click.prevent="onLinkClick(item)">{{
-            item.meta.title
+            generateTitle(item.meta.title)
           }}</a>
         <!-- 不可点击项 -->
-        <span v-else class="no-redirect">{{ item.meta.title }}</span>
+        <span v-else class="no-redirect">{{ generateTitle(item.meta.title) }}</span>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -17,6 +17,7 @@
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+import { generateTitle } from '@/utils/i18n'
 
 // 生成面包屑数据
 const route = useRoute()

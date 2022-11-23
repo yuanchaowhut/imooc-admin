@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    个人中心
+    {{$t('msg.profile')}}
   </div>
 </template>
 

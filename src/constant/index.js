@@ -6,3 +6,6 @@ export const TIME_STAMP = 'timeStamp'
 
 // token有效时长，2个小时
 export const TOKEN_TIMEOUT_VALUE = 2 * 60 * 60 * 1000
+
+// 国际化
+export const LANG = 'language'

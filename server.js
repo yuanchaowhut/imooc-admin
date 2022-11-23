@@ -69,6 +69,13 @@ app.post('/smart/sys/login', function (req, res) {
                 success: true,
                 tipType: 1
             })
+        } else {
+            res.json({
+                data: {},
+                message: '登录失败!',
+                success: false,
+                tipType: 1
+            })
         }
     }
 })

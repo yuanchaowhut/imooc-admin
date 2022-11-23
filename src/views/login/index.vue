@@ -2,7 +2,7 @@
   <div class="login-container">
     <el-form class="login-form" ref="loginFormRef" :model="loginForm" :rules="loginRules">
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
+        <h3 class="title">{{$t('msg.login.title')}}</h3>
       </div>
       <!--用户名-->
       <el-form-item prop="username">
@@ -11,7 +11,7 @@
           <!--<el-icon><avatar/></el-icon>-->
           <svg-icon icon="user"/>
         </span>
-        <el-input type="text" name="username" placeholder="请输入账号" v-model="loginForm.username"/>
+        <el-input type="text" name="username" :placeholder="$t('msg.login.usernamePlaceholder')" v-model="loginForm.username"/>
       </el-form-item>
       <!--密码-->
       <el-form-item prop="password">
@@ -20,14 +20,14 @@
           <!--<svg-icon icon="https://res.lgdsunday.club/user.svg"></svg-icon>-->
           <svg-icon icon="password"/>
         </span>
-        <el-input :type="passwordType" name="password" placeholder="请输入密码" v-model="loginForm.password"/>
+        <el-input :type="passwordType" name="password" :placeholder="$t('msg.login.passwordPlaceholder')" v-model="loginForm.password"/>
         <span class="show-pwd" @click="onChangePwdType">
           <svg-icon :icon="passwordType==='password'?'eye-close':'eye-open'"/>
         </span>
       </el-form-item>
       <!--登录按钮-->
       <el-button type="primary" style="width: 100%; margin-bottom: 30px"
-                 :loading="loading" @click="handleLogin">登录
+                 :loading="loading" @click="handleLogin">{{$t('msg.login.loginBtn')}}
       </el-button>
     </el-form>
   </div>
@@ -39,6 +39,7 @@
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 import { validatePassword } from '@/views/login/rules'
+import { useI18n } from 'vue-i18n'
 
 // 数据源
 const loginForm = ref({
@@ -46,12 +47,13 @@ const loginForm = ref({
   password: '123456'
 })
 // 验证规则
+const i18n = useI18n()
 const loginRules = ref({
   username: [
     {
       required: true,
       trigger: 'blur',
-      message: '用户名为必填项'
+      message: i18n.t('msg.login.usernameRule')
     }
   ],
   password: [{

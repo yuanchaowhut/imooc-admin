@@ -1,6 +1,6 @@
 import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
-import { set, get, clear } from '@/utils/storage'
+import { set, get } from '@/utils/storage'
 import { TOKEN } from '@/constant'
 import router from '@/router'
 import { setTimeStamp } from '@/utils/auth'
@@ -70,7 +70,6 @@ export default {
             // 清除vuex缓存数据、清除浏览器缓存数据、跳转到登录页面
             this.commit('user/setToken', '')
             this.commit('user/setUserInfo', {})
-            clear()
             router.push('/login')
         }
     }

@@ -4,7 +4,7 @@
   <!--非elment ui 内置的icon，比如本地svg图片或外链svg-->
   <svg-icon :icon="icon"></svg-icon>
   <!--标题-->
-  <span>{{ title }}</span>
+  <span>{{title}}</span>
 </template>
 
 <script setup>
