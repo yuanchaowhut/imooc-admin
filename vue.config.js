@@ -42,8 +42,11 @@ module.exports = {
         headers: {
             'Access-Control-Allow-Origin': '*'
         },
+        host: 'localhost',
         port: 8700,
         hot: true,
+        open: true, // 配置自动启动浏览器
+        https: false, // https:{type:Boolean}
         proxy: {
             '/api': {
                 target: 'http://localhost:8600',
