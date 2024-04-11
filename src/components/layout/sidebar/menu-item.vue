@@ -2,7 +2,7 @@
   <!--elment ui 内置的icon-->
   <i v-if="icon.includes('el-icon')" class="sub-el-icon" :class="icon"></i>
   <!--非elment ui 内置的icon，比如本地svg图片或外链svg-->
-  <svg-icon :icon="icon"></svg-icon>
+  <svg-icon v-else :icon="icon"></svg-icon>
   <!--标题-->
   <span>{{title}}</span>
 </template>

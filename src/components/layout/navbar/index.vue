@@ -6,6 +6,8 @@
     <bread-crumb class="breadcrumb-container" />
     <!--右边头像/按钮等-->
     <div class="right-menu">
+      <!--全屏-->
+      <screenfull class="right-menu-item hover-effect"></screenfull>
       <!--动态换肤(主题)-->
       <theme-slect class="right-menu-item hover-effect"></theme-slect>
       <!--国际化-->
@@ -44,6 +46,7 @@ import Hamburger from '@/components/hamburger'
 import BreadCrumb from '@/components/breadcrumb'
 import LangSelect from '@/components/lang-select'
 import ThemeSlect from '@/components/theme-select'
+import Screenfull from '@/components/screenfull'
 
 const store = useStore()
 const logout = () => {

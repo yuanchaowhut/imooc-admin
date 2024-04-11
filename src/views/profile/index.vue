@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    {{$t('msg.profile')}}
+    {{$t('msg.profile.author')}}
   </div>
 </template>
 

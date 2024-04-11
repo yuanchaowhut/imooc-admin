@@ -1,13 +1,15 @@
 <template>
-  <!--外部图标展示-->
-  <div v-if="isExternal"
-       :style="styleExternalIcon"
-       class="svg-icon svg-external-icon"
-       :class="className"></div>
-  <!--内部图标展示-->
-  <svg v-else class="svg-icon" :class="className" aria-hidden="true">
-    <use :xlink:href="iconName"/>
-  </svg>
+  <div class="svg-icon-wrapper">
+    <!--外部图标展示-->
+    <div v-if="isExternal"
+         :style="styleExternalIcon"
+         class="svg-icon svg-external-icon"
+         :class="className"></div>
+    <!--内部图标展示-->
+    <svg v-else class="svg-icon" :class="className" aria-hidden="true">
+      <use :xlink:href="iconName"/>
+    </svg>
+  </div>
 </template>
 
 <script setup>
@@ -41,17 +43,22 @@ const iconName = computed(() => `#icon-${props.icon}`)
 </script>
 
 <style lang="scss" scoped>
-.svg-icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15rem;
-  fill: currentColor;
-  overflow: hidden;
-}
-
-.svg-external-icon {
-  background-color: currentColor;
-  mask-size: cover !important;
+.svg-icon-wrapper{
+  position: relative;
   display: inline-block;
+
+  .svg-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15rem;
+    fill: currentColor;
+    overflow: hidden;
+  }
+
+  .svg-external-icon {
+    display: inline-block;
+    background-color: currentColor;
+    mask-size: cover !important;
+  }
 }
 </style>
