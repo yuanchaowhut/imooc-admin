@@ -1,24 +1,35 @@
-# imooc-admin
+# 使用说明
 
-## Project setup
-```
-yarn install
-```
 
-### Compiles and hot-reloads for development
+
+### 1. 安装依赖
+
 ```
-yarn serve
+pnpm i
 ```
 
-### Compiles and minifies for production
-```
-yarn build
+
+###  2. 启动后端
+
+```shell
+node server.js
 ```
 
-### Lints and fixes files
-```
-yarn lint
+
+###  3. 启动前端
+
+```shell
+pnpm run serve
 ```
 
-### Customize configuration
+
+###  4. 编译打包
+
+
+```shell
+pnpm run build
+```
+
+
+### 5. 自定义配置
 See [Configuration Reference](https://cli.vuejs.org/config/).
