@@ -6,6 +6,8 @@
     <bread-crumb class="breadcrumb-container" />
     <!--右边头像/按钮等-->
     <div class="right-menu">
+      <!--全文检索-->
+      <header-search class="right-menu-item hover-effect"></header-search>
       <!--全屏-->
       <screenfull class="right-menu-item hover-effect"></screenfull>
       <!--动态换肤(主题)-->
@@ -47,6 +49,7 @@ import BreadCrumb from '@/components/breadcrumb'
 import LangSelect from '@/components/lang-select'
 import ThemeSlect from '@/components/theme-select'
 import Screenfull from '@/components/screenfull'
+import HeaderSearch from '@/components/header-search'
 
 const store = useStore()
 const logout = () => {

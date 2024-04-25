@@ -59,7 +59,7 @@ app.post('/smart/sys/login', function (req, res) {
     }
 
     function handleLogin(data) {
-        if (data.username === 'admin' && data.password === md5('123456')) {
+        if (data.username.includes('admin') && data.password === md5('123456')) {
             res.json({
                 data: {
                     user: { password: 'e10adc3949ba59abbe56e057f20f883e', username: 'super-admin' },
