@@ -28,7 +28,7 @@ import { useRouter } from 'vue-router'
 import Fuse from 'fuse.js'
 import { generateRoutes } from './fuseData'
 import { filterRouters } from '@/utils/route'
-import { watchLangSwitch } from '@/utils/i18n'
+import { watchSwitchLang } from '@/utils/i18n'
 
 // 检索数据源
 const router = useRouter()
@@ -117,7 +117,7 @@ watch(isShow, (val) => {
  * 处理国际化
  * 监听语言变化，重新初始化搜索库
  */
-watchLangSwitch(() => {
+watchSwitchLang(() => {
   searchPool = computed(() => {
     const filterRoutes = filterRouters(router.getRoutes())
     return generateRoutes(filterRoutes)

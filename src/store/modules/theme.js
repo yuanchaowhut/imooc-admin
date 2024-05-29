@@ -1,15 +1,15 @@
 import { MAIN_COLOR, DEFAULT_COLOR } from '@/constant'
-import { set, get } from '@/utils/storage'
+import { setItem, getItem } from '@/utils/storage'
 
 export default {
     namespaced: true,
     state: () => ({
-        mainColor: get(MAIN_COLOR) || DEFAULT_COLOR
+        mainColor: getItem(MAIN_COLOR) || DEFAULT_COLOR
     }),
     mutations: {
         setMainColor(state, newColor) {
             state.mainColor = newColor
-            set(MAIN_COLOR, newColor)
+            setItem(MAIN_COLOR, newColor)
         }
     }
 }

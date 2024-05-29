@@ -1,6 +1,6 @@
 import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
-import { set, get } from '@/utils/storage'
+import { setItem, getItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
 import router from '@/router'
 import { setTimeStamp } from '@/utils/auth'
@@ -8,7 +8,7 @@ import { setTimeStamp } from '@/utils/auth'
 export default {
     namespaced: true, // 带命名空间，避免相同命名的 action、mutation、getter 等造成干扰
     state: () => ({
-        token: get(TOKEN) || '',
+        token: getItem(TOKEN) || '',
         userInfo: {}
     }),
     mutations: {
@@ -16,7 +16,7 @@ export default {
             // 存vuex
             state.token = token
             // 存localStorage
-            set(TOKEN, token)
+            setItem(TOKEN, token)
         },
         setUserInfo(state, userInfo) {
             state.userInfo = userInfo

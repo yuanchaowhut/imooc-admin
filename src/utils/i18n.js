@@ -6,7 +6,7 @@ export function generateTitle(title) {
     return i18n.global.t('msg.route.' + title)
 }
 
-export function watchLangSwitch(...callbacks) {
+export function watchSwitchLang(...callbacks) {
     watch(
         () => store.getters.language,
         (val) => {

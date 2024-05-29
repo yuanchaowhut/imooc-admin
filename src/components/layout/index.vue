@@ -9,6 +9,8 @@
       <div class="fixed-header">
         <!-- 顶部的 navbar -->
         <navbar />
+        <!-- tags -->
+        <tags-view></tags-view>
       </div>
       <!-- 内容区 -->
       <app-main />
@@ -21,6 +23,7 @@ import {} from 'vue'
 import Sidebar from './sidebar'
 import Navbar from './navbar'
 import AppMain from './appmain'
+import TagsView from '../tagsview'
 import variables from '@/styles/variables.module.scss'
 
 </script>

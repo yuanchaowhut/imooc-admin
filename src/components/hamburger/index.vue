@@ -26,6 +26,7 @@ const icon = computed(() => store.getters.sidebarOpened ? 'hamburger-opened' : '
     vertical-align: middle;
     width: 20px;
     height: 20px;
+    line-height: 20px;
   }
 }
 </style>

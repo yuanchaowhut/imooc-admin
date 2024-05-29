@@ -7,7 +7,7 @@ const prefix = '__data__'
  * @param value 外部调用时不需要JSON.stringify，方法内部会自行处理
  * @param time 可选参数，可以指定过期时间，例如：10d表示10天，100h表示100小时等，方法内部会转化为时间戳
  */
-export const set = (key, value, time) => {
+export const setItem = (key, value, time) => {
     if (!localStorage) return false
     let t = null
     if (time && time.length >= 2) {
@@ -57,7 +57,7 @@ export const set = (key, value, time) => {
  * 根据键获取值，如果值是一个对象会自动解析好返回。如果存储时设置了过期时间，则已过期的数据会自行删除，且返回null。
  * @param key
  */
-export const get = (key) => {
+export const getItem = (key) => {
     if (!localStorage) return null
     const value = localStorage.getItem(prefix + key)
     if (value) {
@@ -74,7 +74,7 @@ export const get = (key) => {
  * 根据键删除对应的值
  * @param key
  */
-export const remove = (key) => {
+export const removeItem = (key) => {
     if (localStorage) {
         localStorage.removeItem(prefix + key)
     }
