@@ -37,5 +37,10 @@ const logoHeight = 44
     font-size: 16px;
     white-space: nowrap;
   }
+
+  // element.scss中.el-avatar 其实已经覆盖过一遍，但由于动态换肤重新生成了cssText并且append了到页面，所以这里需要再次覆盖掉
+  .el-avatar {
+    --el-avatar-background-color: none;
+  }
 }
 </style>

@@ -1,4 +1,6 @@
-import variables from '@/styles/variables.module.scss'
+import { generateColors } from '@/utils/theme'
+import { getItem } from '@/utils/storage'
+import { MAIN_COLOR } from '@/constant'
 
 // getters 其实就相当于vuex里的计算属性
 const getters = {
@@ -8,7 +10,12 @@ const getters = {
 
     hasUserInfo: (state) => JSON.stringify(state.user.userInfo) !== '{}',
 
-    cssVar: (state) => variables,
+    cssVar: (state) => {
+        return {
+            ...state.theme.variables,
+            ...generateColors(getItem(MAIN_COLOR))
+        }
+    },
 
     sidebarOpened: (state) => state.app.sidebarOpened,
 
