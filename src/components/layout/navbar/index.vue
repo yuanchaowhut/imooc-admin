@@ -3,9 +3,11 @@
     <!--侧边栏显示/隐藏按钮-->
     <hamburger class="hamburger-container" />
     <!--面包屑组件-->
-    <bread-crumb class="breadcrumb-container" />
+    <bread-crumb id="guide-breadcrumb" class="breadcrumb-container" />
     <!--右边头像/按钮等-->
     <div class="right-menu">
+      <!--引导页-->
+      <guide class="right-menu-item hover-effect"></guide>
       <!--全文检索-->
       <header-search class="right-menu-item hover-effect"></header-search>
       <!--全屏-->
@@ -50,6 +52,7 @@ import LangSelect from '@/components/lang-select'
 import ThemeSlect from '@/components/theme-select'
 import Screenfull from '@/components/screenfull'
 import HeaderSearch from '@/components/header-search'
+import Guide from '@/components/guide'
 
 const store = useStore()
 const logout = () => {

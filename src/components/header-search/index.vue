@@ -1,6 +1,8 @@
 <template>
   <div class="header-search" :class="{ show: isShow }">
-    <svg-icon class-name="search-icon" icon="search" @click.stop="onShowClick" />
+    <el-tooltip :content="$t('msg.navBar.headerSearch')">
+      <svg-icon id="guide-search" class-name="search-icon" icon="search" @click.stop="onShowClick"/>
+    </el-tooltip>
     <el-select
       ref="headerSearchSelectRef"
       class="header-search-select"
