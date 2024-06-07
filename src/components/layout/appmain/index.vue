@@ -72,7 +72,8 @@ watchSwitchLang(() => {
 
 <style lang="scss" scoped>
 .app-main {
-  min-height: calc(100vh - 50px - 43px);
+  height: 100%;
+  //min-height: calc(100vh - 50px - 43px);
   width: 100%;
   position: relative;
   overflow: hidden;

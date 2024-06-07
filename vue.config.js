@@ -52,7 +52,7 @@ module.exports = {
                 target: 'http://localhost:8600',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/api': '/smart'
+                    '^/api': '/imooc'
                 }
             }
         }
